@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -26,15 +27,17 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        // References to TextView and Buttons
+        // References
         TextView tvMessage = findViewById(R.id.textView2);
         Button btnChangeText = findViewById(R.id.button);
         Button btnChangeColor = findViewById(R.id.button2);
+        Button btnChangeBackground = findViewById(R.id.button3);
+        ConstraintLayout mainLayout = findViewById(R.id.main);
 
-        // Change text on first button click
+        // Change text
         btnChangeText.setOnClickListener(v -> tvMessage.setText("Button was clicked!"));
 
-        // Change text color on second button click
+        // Change text color
         btnChangeColor.setOnClickListener(v -> {
             int color = Color.rgb(
                     (int) (Math.random() * 256),
@@ -43,5 +46,16 @@ public class MainActivity extends AppCompatActivity {
             );
             tvMessage.setTextColor(color);
         });
+
+        // Change background color
+        btnChangeBackground.setOnClickListener(v -> {
+            int color = Color.rgb(
+                    (int) (Math.random() * 256),
+                    (int) (Math.random() * 256),
+                    (int) (Math.random() * 256)
+            );
+            mainLayout.setBackgroundColor(color);
+        });
     }
 }
+
