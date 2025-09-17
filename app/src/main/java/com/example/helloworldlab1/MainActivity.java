@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        // References
+        // Code for revert
         TextView tvMessage = findViewById(R.id.textView2);
         Button btnChangeText = findViewById(R.id.button);
         Button btnChangeColor = findViewById(R.id.button2);
