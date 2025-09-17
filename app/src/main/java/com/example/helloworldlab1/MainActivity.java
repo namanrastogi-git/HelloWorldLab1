@@ -1,5 +1,6 @@
 package com.example.helloworldlab1;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -18,19 +19,29 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        // Window inset handling (auto-generated code)
+        // Window inset handling
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        //  My code for Button click
+        // References to TextView and Buttons
         TextView tvMessage = findViewById(R.id.textView2);
         Button btnChangeText = findViewById(R.id.button);
+        Button btnChangeColor = findViewById(R.id.button2);
 
-        btnChangeText.setOnClickListener(v -> {
-            tvMessage.setText("Button was clicked!");
+        // Change text on first button click
+        btnChangeText.setOnClickListener(v -> tvMessage.setText("Button was clicked!"));
+
+        // Change text color on second button click
+        btnChangeColor.setOnClickListener(v -> {
+            int color = Color.rgb(
+                    (int) (Math.random() * 256),
+                    (int) (Math.random() * 256),
+                    (int) (Math.random() * 256)
+            );
+            tvMessage.setTextColor(color);
         });
     }
 }
